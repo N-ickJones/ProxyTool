@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Phoenix App</title>
+  </head>
+  <body>
+      <%= render @view_module, @view_template, assigns %>
+  </body>
+</html>

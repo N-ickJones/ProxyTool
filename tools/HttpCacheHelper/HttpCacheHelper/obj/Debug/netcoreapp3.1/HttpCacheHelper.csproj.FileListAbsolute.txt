@@ -1,0 +1,11 @@
+C:\Users\armyj\Documents\GitHub\ProxyWorld\HttpCacheHelper\HttpCacheHelper\bin\Debug\netcoreapp3.1\HttpCacheHelper.exe
+C:\Users\armyj\Documents\GitHub\ProxyWorld\HttpCacheHelper\HttpCacheHelper\bin\Debug\netcoreapp3.1\HttpCacheHelper.deps.json
+C:\Users\armyj\Documents\GitHub\ProxyWorld\HttpCacheHelper\HttpCacheHelper\bin\Debug\netcoreapp3.1\HttpCacheHelper.runtimeconfig.json
+C:\Users\armyj\Documents\GitHub\ProxyWorld\HttpCacheHelper\HttpCacheHelper\bin\Debug\netcoreapp3.1\HttpCacheHelper.runtimeconfig.dev.json
+C:\Users\armyj\Documents\GitHub\ProxyWorld\HttpCacheHelper\HttpCacheHelper\bin\Debug\netcoreapp3.1\HttpCacheHelper.dll
+C:\Users\armyj\Documents\GitHub\ProxyWorld\HttpCacheHelper\HttpCacheHelper\bin\Debug\netcoreapp3.1\HttpCacheHelper.pdb
+C:\Users\armyj\Documents\GitHub\ProxyWorld\HttpCacheHelper\HttpCacheHelper\obj\Debug\netcoreapp3.1\HttpCacheHelper.csprojAssemblyReference.cache
+C:\Users\armyj\Documents\GitHub\ProxyWorld\HttpCacheHelper\HttpCacheHelper\obj\Debug\netcoreapp3.1\HttpCacheHelper.AssemblyInfoInputs.cache
+C:\Users\armyj\Documents\GitHub\ProxyWorld\HttpCacheHelper\HttpCacheHelper\obj\Debug\netcoreapp3.1\HttpCacheHelper.AssemblyInfo.cs
+C:\Users\armyj\Documents\GitHub\ProxyWorld\HttpCacheHelper\HttpCacheHelper\obj\Debug\netcoreapp3.1\HttpCacheHelper.dll
+C:\Users\armyj\Documents\GitHub\ProxyWorld\HttpCacheHelper\HttpCacheHelper\obj\Debug\netcoreapp3.1\HttpCacheHelper.pdb

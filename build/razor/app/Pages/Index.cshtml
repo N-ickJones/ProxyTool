@@ -1,0 +1,16 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Razor App";
+}
+
+    <div>
+        <h1>HTTP Headers</h1>
+        @{
+            foreach (string key in Request.Headers.Keys)
+            {
+                <p><span style="font-weight: bold;">@key:</span> @Request.Headers[key]</p>
+            }
+        }
+    </div>
+

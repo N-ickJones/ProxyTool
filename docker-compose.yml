@@ -1,0 +1,123 @@
+version: '3'
+
+services:
+  nginx:
+    build: ./build/nginx
+    container_name: nginx
+    hostname: nginx
+    ports:
+      - 80:80
+      - 443:443
+    # volumes:
+    #- ./build/nginx/etc:/etc
+    extra_hosts:
+      - "*.localhost:127.0.0.1"
+    depends_on:
+      - django
+      - flask
+      - ruby
+
+  db:
+    image: postgres
+    container_name: postgres
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+    restart: always
+
+  react:
+    build: ./build/react
+    container_name: react
+    hostname: react
+    # command: bash -c "cd ProxyWorldClient && npm start" #Development
+    command: dotnet out/ProxyWorldApi.dll   #Production
+    ports:
+      -  8000:8000
+    volumes:
+      - ./build/react/app/ProxyWorldClient/src:/app/ProxyWorldClient/src 
+
+  razor:
+    build: ./build/razor
+    container_name: razor
+    hostname: razor
+    # command: dotnet watch run           # Development
+    command: dotnet out/razor.dll       # Production
+    ports:
+      - 8001:8001
+    volumes:
+     - ./build/razor/app/Pages:/app/Pages
+
+  django:
+    build: ./build/django
+    container_name: django
+    hostname: django
+    # command: python manage.py runserver 0.0.0.0:8002 # Development
+    command: gunicorn --bind 0.0.0.0:8002 composeexample.wsgi:application   # Production 
+    ports:
+      - 8002:8002
+    volumes:
+      - ./build/django/app:/code
+    depends_on:
+      - db
+
+  flask:
+    build: ./build/flask
+    container_name: flask
+    hostname: flask
+    # command: python app.py   # Development
+    command: gunicorn --bind 0.0.0.0:8003 index:application  # Production 
+    ports:
+      - 8003:8003
+    volumes:
+      - ./build/flask/app:/code
+
+  ruby:
+    build: ./build/ruby
+    container_name: ruby
+    hostname: ruby
+    # command: bundle exec rails server -b 0.0.0.0 -p 8004  # Development
+    command: unicorn -p 8004  # Production
+    ports:
+      - 8004:8004
+
+  spring:
+    build: ./build/spring
+    container_name: spring
+    hostname: spring
+    command: java -jar app.jar
+    ports:
+      - 8005:8005
+
+  laravel:
+    build: ./build/laravel
+    container_name: laravel
+    hostname: laravel
+    command: php artisan serve --host=0.0.0.0 --port=8006
+    ports: 
+      - 8006:8006
+
+  phoenix:
+    build: ./build/phoenix
+    container_name: phoenix
+    hostname: phoenix
+    command: bash -c "mix ecto.create && mix ecto.migrate && mix phx.server"
+    ports:
+      - 8007:8007
+    environment:
+      PGUSER: postgres
+      PGPASSWORD: password
+      PGDATABASE: phoenix
+      PGPORT: 5432
+      PGHOST: db
+    depends_on:
+      - db
+
+  express:
+    build: ./build/express
+    container_name: express
+    hostname: express
+    command: node app.js
+    ports:
+      - 8008:8008
+
+

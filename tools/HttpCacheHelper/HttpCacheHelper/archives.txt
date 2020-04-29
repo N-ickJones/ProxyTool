@@ -1,0 +1,15 @@
+﻿
+
+// string[] args
+// Accepts a first Parameter via Command Line or defaults to django for debugging
+string Url = args.Length != 0 ? args[0] : "https://ruby.myvenv.club";
+RequestHelper request = new RequestHelper();
+var response = await request.PostToString(Url, content);
+var values = new Dictionary<string, string> { { "thing1", "hello" }, { "thing2", "world" } };
+var content = new FormUrlEncodedContent(values);
+var content = new StringContent("Test");
+content.Headers.ContentType = new MediaTypeHeaderValue("application/octet-stream");
+content.Headers.Add("cache-control", "no-cache");
+
+
+

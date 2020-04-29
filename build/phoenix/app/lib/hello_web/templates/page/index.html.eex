@@ -1,0 +1,6 @@
+<div>
+  <h1>HTTP Headers</h1>
+  <%= for {key, value} <- @header do %>
+    <p><span style="font-weight: bold;"><%= key %>: </span><%= value %></p>
+  <% end %>
+</div>
