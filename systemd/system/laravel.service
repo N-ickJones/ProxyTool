@@ -1,0 +1,15 @@
+[Unit]
+Description=laravel daemon
+
+[Service]
+User=www
+Group=www
+WorkingDirectory=/opt/www/ProxyWorld/build/laravel/app
+ExecStart=php artisan serve --port=8006
+Restart=always
+RestartSec=10
+KillSignal=SIGINT
+
+[Install]
+WantedBy=multi-user.target
+

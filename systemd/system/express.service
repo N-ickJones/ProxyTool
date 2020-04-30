@@ -1,0 +1,15 @@
+[Unit]
+Description=express daemon
+
+[Service]
+User=root
+Group=root
+WorkingDirectory=/opt/www/ProxyWorld/build/express/app
+ExecStart=node app.js
+Restart=always
+RestartSec=10
+KillSignal=SIGINT
+
+[Install]
+WantedBy=multi-user.target
+

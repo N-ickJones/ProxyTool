@@ -1,0 +1,15 @@
+[Unit]
+Description=ruby daemon
+
+[Service]
+User=root
+Group=root
+WorkingDirectory=/opt/www/ProxyWorld/build/ruby/app
+ExecStart=unicorn -p 8004
+Restart=always
+RestartSec=10
+KillSignal=SIGINT
+
+[Install]
+WantedBy=multi-user.target
+

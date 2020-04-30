@@ -1,0 +1,18 @@
+[Unit]
+Description=razor daemon
+
+[Service]
+User=root
+Group=root
+WorkingDirectory=/opt/www/ProxyWorld/build/razor/app
+ExecStart=dotnet /opt/www/ProxyWorld//build/razor/app/bin/Release/netcoreapp3.1/razor.dll
+Restart=always
+RestartSec=10
+KillSignal=SIGINT
+SyslogIdentifier=dotnnetRazor
+Environment=ASPNETCORE_ENVIRONMENT=Production
+Environment=DOTNET_PRINT_TELEMETRY_MESSAGE=false
+
+[Install]
+WantedBy=multi-user.target
+

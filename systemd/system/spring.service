@@ -1,0 +1,15 @@
+[Unit]
+Description=spring daemon
+After=syslog.target
+
+[Service]
+User=root
+Group=root
+WorkingDirectory=/opt/www/ProxyWorld/build/spring/app
+ExecStart=/opt/www/ProxyWorld/build/spring/app/gradlew bootRun
+SuccessExitStatus=143
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target

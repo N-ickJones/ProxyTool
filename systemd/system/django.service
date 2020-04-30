@@ -1,0 +1,13 @@
+[Unit]
+Description=django daemon
+After=network.target
+
+[Service]
+User=www
+Group=www
+WorkingDirectory=/opt/www/ProxyWorld/build/django/app
+ExecStart=/opt/www/ProxyWorld/build/django/app/venv/bin/gunicorn --access-logfile - --workers 1 --bind unix:/opt/www/ProxyWorld/build/django/app/composeexample.sock composeexample.wsgi:application
+
+[Install]
+WantedBy=multi-user.target
+

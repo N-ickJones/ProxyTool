@@ -1,0 +1,14 @@
+[Unit]
+Description=spring daemon
+After=syslog.target
+
+[Service]
+User=root
+Group=root
+WorkingDirectory=/opt/www/ProxyWorld/build/phoenix/app
+ExecStart=mix phx.server
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
