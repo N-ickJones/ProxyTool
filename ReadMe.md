@@ -45,14 +45,14 @@ The creation of the web applications on a single virtual machine is somewhat dif
 
 The operating system, in our case fedora 31, has to create a socket for our application to be individual accessed through a single public ip address. This is accomplished through systemd which creates daemons that are configured to run the individual applications. All the services on the fedora 32 machine as in the /etc/systemd/system directory and later in this paper we will explain and provide the code required to serve each web framework. After install dependencies, compiling, and setting up the web application the daemons are enabled and started using systemctl and inspected with journalctl (both using systemd). 
 
-The next step after the creation of the daemons is to configure the reverse proxy. In our lab we used nginx as our reverse proxy and cache application. If time permits we will run the tests on alternatives. In short, nginx is accepting traffic on ports 80 and 443 then taking that traffic and directing it to the proper application known as a reverse proxy. For example, opening chrome and navigating to https://flask.myvenv.club will be sent across port 443 to ip address 64.255.25.0 after being redirected by managed dns server. If the request is sent across port 80 or http then the request will get redirected to port 443 then sent to the flask application.
+The next step after the creation of the daemons is to configure the reverse proxy. In our lab we used nginx as our reverse proxy and cache application. If time permits we will run the tests on alternatives. In short, nginx is accepting traffic on ports 80 and 443 then taking that traffic and directing it to the proper application known as a reverse proxy. For example, opening chrome and navigating to https://flask.myvenv.com will be sent across port 443 to ip address 64.255.25.0 after being redirected by managed dns server. If the request is sent across port 80 or http then the request will get redirected to port 443 then sent to the flask application.
 
 Also included on each application are the HTTP headers written on the landing page. They are to be used in testing for cache poisoning susceptibility and vulernabilities.
 	
 ### Prerequisites
 	1. Create a RHEL based server with CentOS, RHEL, or Fedora (To use this guide specifically)
 	2. Using a test domain assign the following Records to the server
-	# Note e.g. react is really react.myvenv.club in the example and server ip can be found use ip addr command
+	# Note e.g. react is really react.myvenv.com in the example and server ip can be found use ip addr command
 	Record		Type		Value
 	react		A		(server IP)
 	razor		A		(server IP)
@@ -66,7 +66,7 @@ Also included on each application are the HTTP headers written on the landing pa
 	# You might also need to relay your server to your name server depending on your setup.
 	# The following is an example and would need to be performed for each subdomain.
 	Record		Type			Value
-	NS		react.myvenv.club	ns.dreamhost.com
+	NS		react.myvenv.com	ns.dreamhost.com
 	3. Install a firewall (firewalld) and allow ports 22 (SSH), 80 (HTTP), 443 (HTTPS), 5432 (PostgreSql Database)
 	4. Install nginx and view the Nginx Initialization section
 	5. Create Your systemd daemons to run the application
@@ -292,7 +292,7 @@ Also included on each application are the HTTP headers written on the landing pa
 	WantedBy=multi-user.target
 
 #### Nginx Configuration before HTTPS Redirection
-	server_name react.myvenv.club;
+	server_name react.myvenv.com;
 	location / {
 		proxy_pass https://localhost:8000;
 	}
@@ -324,7 +324,7 @@ Also included on each application are the HTTP headers written on the landing pa
 	WantedBy=multi-user.target
 	
 #### Nginx Configuration before HTTPS Redirection
-	server_name react.myvenv.club;
+	server_name react.myvenv.com;
 	location / {
 		proxy_pass https://localhost:8001;
 	}
@@ -382,7 +382,7 @@ Creating a Django application involves installing python, creating a virtualenv,
 
 	
 #### Nginx Configuration before HTTPS Redirection
-	server_name django.myvenv.club;
+	server_name django.myvenv.com;
 	location / {
 	 proxy_pass http://unix:/opt/www/ProxyWorld/Django/myapp.sock;
 	}
@@ -425,7 +425,7 @@ Creating a Django application involves installing python, creating a virtualenv,
 
 	
 #### Nginx Configuration before HTTPS Redirection
-	server_name flask.myvenv.club;
+	server_name flask.myvenv.com;
 	location / {
 	 proxy_pass http://unix:/opt/www/ProxyWorld/Flask/app.sock;
 	}
@@ -480,7 +480,7 @@ Creating a Django application involves installing python, creating a virtualenv,
 
 
 #### Nginx Configuration before HTTPS
-	server_name ruby.myvenv.club;
+	server_name ruby.myvenv.com;
 	location / {
 		proxy_pass https://localhost:8004;
 	}
@@ -566,7 +566,7 @@ Creating a Django application involves installing python, creating a virtualenv,
 	WantedBy=multi-user.target
 
 #### Nginx Configuration before HTTPS
-	server_name spring.myvenv.club;
+	server_name spring.myvenv.com;
 	location / {
 		proxy_pass https://localhost:8005;
 	}
@@ -616,7 +616,7 @@ Creating a Django application involves installing python, creating a virtualenv,
 	WantedBy=multi-user.target
 
 #### Nginx Configuration before HTTPS
-	server_name laravel.myvenv.club;
+	server_name laravel.myvenv.com;
 	location / {
 		proxy_pass https://localhost:8006;
 	}
@@ -677,7 +677,7 @@ Creating a Django application involves installing python, creating a virtualenv,
 	WantedBy=multi-user.target
 
 #### Nginx Configuration before HTTPS
-	server_name phoenix.myvenv.club;
+	server_name phoenix.myvenv.com;
 	location / {
 		proxy_pass https://localhost:8007;
 	}
@@ -715,7 +715,7 @@ Creating a Django application involves installing python, creating a virtualenv,
 	WantedBy=multi-user.target
 
 #### Nginx Configuration before HTTPS	
-	server_name express.myvenv.club;
+	server_name express.myvenv.com;
 	location / {
 		proxy_pass https://localhost:8008;
 	}
