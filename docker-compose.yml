@@ -1,21 +1,21 @@
 version: '3'
 
 services:
-  nginx:
-    build: ./build/nginx
-    container_name: nginx
-    hostname: nginx
-    ports:
-      - 80:80
-      - 443:443
+    #nginx:
+    #build: ./build/nginx
+    #container_name: nginx
+    #hostname: nginx
+    #ports:
+    #  - 80:80
+    #  - 443:443
     # volumes:
     #- ./build/nginx/etc:/etc
-    extra_hosts:
-      - "*.localhost:127.0.0.1"
-    depends_on:
-      - django
-      - flask
-      - ruby
+    #extra_hosts:
+    #  - "*.localhost:127.0.0.1"
+    #depends_on:
+    #  - django
+    #  - flask
+    #  - ruby
 
   db:
     image: postgres

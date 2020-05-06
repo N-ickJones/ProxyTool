@@ -25,7 +25,7 @@ SECRET_KEY = '$yugjn(hvovbr9x#-#8+&pjr0j@t8=_b*7(+ryf)_7_5joq#-5'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1',  'django', 'django.myvenv.club']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1',  'django', 'django.myvenv.com']
 
 
 # Application definition
