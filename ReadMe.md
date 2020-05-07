@@ -924,4 +924,56 @@ Creating a Django application involves installing python, creating a virtualenv,
     named-checkconf -z /etc/named.conf
     named-checkzone forward myvenv.com.zon
 
+### upgrade Centos 7 to Centos 8
+
+#### Repos
+    yum install epel-release yum-utils rpmconf -y
+
+#### remove conflicting configurations
+    rpmconf -a
+
+#### Cleanup packages
+    package-cleanup --leaves
+        package-cleanup --orphans
+
+##### remove any above
+    yum remove -y 
+
+#### Install dnf
+    yum install dnf
+
+#### Uninstall yum
+    dnf -y remove yum yum-metadata-parser
+        rm -Rf /etc/yum
+
+#### upgrade dnf
+    dnf upgrade
+
+#### Install & upgrade centos 8 Note: .rpmnew appended to file conflicts where this file is your settings
+    dnf upgrade -y http://mirror.centos.org/centos/8/BaseOS/x86_64/os/Packages/{centos-release-8.1-1.1911.0.8.el8.x86_64.rpm,centos-gpg-keys-8.1-1.1911.0.8.el8.noarch.rpm,centos-repos-8.1-1.1911.0.8.el8.x86_64.rpm}
+
+#### upgrade epel
+    dnf upgrade -y epel-release
+
+#### clean up
+    dnf clean all
+
+#### remove old kernel
+    rpm -e `rpm -q kernel`
+
+#### remove conflicting packages
+    rpm -e --nodeps sysvinit-tools
+
+#### launch upgrade     Note: if python package error remove old package
+    dnf -y --releasever=8 --allowerasing --setopt=deltarpm=false distro-sync
+
+#### install new kernel
+    dnf -y install kernel-core
+
+#### Install centos minimal     Note: if python package error remove old package
+    dnf -y groupupdate "Core" "Minimal Install"
+
+#### check version
+    cat /etc/redhat-release
+
 
