@@ -1,4 +1,4 @@
-# ProxyWorld
+# ProxyTool
 ### The multi web application/frameworks hosted environment for testing
 ## Docker Environment Overview (Recommended, Local)
 <img src=".documentation/images/docker.png" />
