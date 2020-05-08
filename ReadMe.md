@@ -1,7 +1,7 @@
 # ProxyWorld
 ### The multi web application/frameworks hosted environment for testing
 ## Docker Environment Overview (Recommended, Local)
-<img src=".documentation/images/structure_docker.png" />
+<img src=".documentation/images/docker.png" />
 ### Prerequisites
 	Install Docker 
 	Install Docker Compose
