@@ -15,7 +15,7 @@
 	See Docker Docs on the requirements for docker and docker-compose
 	
 ### Compiling the containers and images
-	# From within the directory with the docker-compose.yml
+	# From within the directory with the docker-compose.yml <- make sure nginx is uncommented
 	# Note: the build will take a while
 	docker-compose build
 	docker-compose up
