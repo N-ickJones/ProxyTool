@@ -36,7 +36,7 @@
 	docker system prune -a
 
 ## The TCP Tool
-<img src=".documentation/images/tool.png" />
+<img src=".documentation/images/tcptool.png" />
 
 ## Hosted Environment Overview (More Difficult, Globally Available)
 ### Update See configs/ubuntu.md and configs/centos.md for updated Docker support for servers
