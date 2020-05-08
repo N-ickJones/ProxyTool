@@ -1,6 +1,7 @@
 # ProxyWorld
 ### The multi web application/frameworks hosted environment for testing
 ## Docker Environment Overview (Recommended, Local)
+<img src=".documentation/images/structure_docker.png" />
 ### Prerequisites
 	Install Docker 
 	Install Docker Compose
@@ -34,7 +35,11 @@
 	if you find yourself with issues... use the follow command to completely reset docker
 	docker system prune -a
 
+## The TCP Tool
+<img src=".documentation/images/tool.png" />
+
 ## Hosted Environment Overview (More Difficult, Globally Available)
+### Update See configs/ubuntu.md and configs/centos.md for updated Docker support for servers
 ### Introduction
 Project that is testing the XSS vulernabilities of the top used web frameworks.
 
