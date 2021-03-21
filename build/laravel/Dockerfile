@@ -5,6 +5,5 @@ RUN docker-php-ext-install pdo
 
 WORKDIR /app
 COPY ./app/ /app
+RUN composer update
 RUN composer install
-
- 
